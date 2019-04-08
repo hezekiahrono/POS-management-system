@@ -1,0 +1,28 @@
+<h1>Create or Edit a POS</h1>
+<div class ="container">
+  <div class="alert alert-warning" *ngIf="todoForm.dirty && todoForm.invalid">Please fill the form to proceed</div>
+  <form (ngSubmit) ="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+  <fieldset class="form-group" >
+    <label>Serial</label>
+ <input type="number" [(ngModel)] = "todo.serial" class="form-control" name="serial" required="required">
+  </fieldset>
+
+  <fieldset class="form-group">
+      <label>Make</label>
+ <input type="text" [(ngModel)] = "todo.make" class="form-control"  name="make" required="required">
+</fieldset>
+
+<fieldset class="form-group">
+    <label>Owner</label>
+<input type="text" [(ngModel)] = "todo.owner" class="form-control" name="owner" required="required">
+</fieldset>
+<fieldset class="form-group">
+    <label>Date</label>
+<input type="date" 
+ [(ngModel)] = "todo.targetDate  " 
+ (ngModelChange)="todo.targetDate = $event"
+class="form-control" name="targetDate" required="required">
+</fieldset>
+<button class="btn btn-success" input type="submit" value="Save"> Save</button>
+</form>
+</div>
